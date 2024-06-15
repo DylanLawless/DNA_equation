@@ -5,7 +5,7 @@
 
 # npm run dev
 npm run build --watch | grep -v deprecated
-npm run dev
+# npm run dev
 sleep 4
 
 open -a Safari http://127.0.0.1:4000
