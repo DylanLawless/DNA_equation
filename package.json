@@ -1,0 +1,39 @@
+{
+  "name": "jekyll-book-framework",
+  "version": "1.0.0",
+  "description": "A jekyll framework for publishing book in multiple format (HTML, PDF, epub)",
+  "author": "Michael Ravedoni",
+  "license": "MIT",
+  "keywords": [
+    "web-publications",
+    "publishing",
+    "jekyll-template",
+    "paged-media",
+    "book"
+  ],
+  "main": "/_site",
+  "devDependencies": {
+    "run-run": "^1.1.0"
+  },
+  "scripts": {
+    "deploy-github": "bundle exec jgd -c _config-github.yml",
+    "deploy-github-dev": "bundle exec jgd -c _config-github.yml -r dev",
+    "build": "bundle exec jekyll build --config _config.yml,_config-stage.yml",
+    "dev": "bundle exec jekyll serve --watch",
+    "stage": "cat env.json | run-run -- 'npm run build && rsync -e ssh -avzuhcp _site/ {FTP_HOST_STAGING} --exclude-from 'rsync-ignore.txt' --delete'",
+    "stage-dry": "cat env.json | run-run -- 'rsync -e ssh -avzuhcp _site/ {FTP_HOST_STAGING} --exclude-from 'rsync-ignore.txt' --dry-run --delete'",
+    "deploy-rsync": "cat env.json | run-run -- 'npm run build && rsync -e ssh -avzuhcp _site/ {FTP_HOST} --exclude-from 'rsync-ignore.txt' --delete'",
+    "deploy-rsync-dry": "cat env.json | run-run -- 'rsync -e ssh -avzuhcp _site/ {FTP_HOST} --exclude-from 'rsync-ignore.txt' --dry-run --delete'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelravedoni/jekyll-book-framework.git"
+  },
+  "bugs": {
+    "url": "https://github.com/michaelravedoni/jekyll-book-framework/issues"
+  },
+  "homepage": "https://ravedoni.com/test/jekyll-book-framework/",
+  "dependencies": {
+    "merge": "^2.1.1"
+  }
+}
