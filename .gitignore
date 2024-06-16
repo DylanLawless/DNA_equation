@@ -2,14 +2,14 @@
 env.json
 
 ### Jekyll ###
-/_site/
-.sass-cache
-.jekyll-metadata
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-Gemfile.lock
+# /_site/
+# .sass-cache
+# .jekyll-metadata
+# _site/
+# .sass-cache/
+# .jekyll-cache/
+# .jekyll-metadata
+# Gemfile.lock
 
 
 ### NPM ###
