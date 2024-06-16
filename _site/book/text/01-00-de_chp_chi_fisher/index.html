@@ -721,8 +721,8 @@ Wir sagen, dass die Proxy-Varianten in LD mit der kausalen Variante sind.</p>
 
 <p>Wir haben einige Beispiele dafür behandelt, wie Sequenzierungsdaten generiert werden.
 Stellen Sie sich vor, wir hätten diese Daten in eine große Tabelle verarbeitet.
-Wenn die Referenzsequenz <script type="math/tex">\texttt{ATGCAGGCTAAGCC...}</script> ist, wird die sequenzierte Daten jeder Person dagegen ausgerichtet, sodass unsere große Tabelle eine Personensequenz (Probe) pro Zeile enthält und jede Spalte eine Nukleotidposition ist.
-Wir können die Daten vereinfachen, so dass wir statt immer <script type="math/tex">\texttt{ATGC}</script> zu betrachten, einfach aufzeichnen können, ob das Probennukleotid mit der Referenz übereinstimmt oder nicht.
+Wenn die Referenzsequenz \(\texttt{ATGCAGGCTAAGCC&#8230;}\) ist, wird die sequenzierte Daten jeder Person dagegen ausgerichtet, sodass unsere große Tabelle eine Personensequenz (Probe) pro Zeile enthält und jede Spalte eine Nukleotidposition ist.
+Wir können die Daten vereinfachen, so dass wir statt immer \(\texttt{ATGC}\) zu betrachten, einfach aufzeichnen können, ob das Probennukleotid mit der Referenz übereinstimmt oder nicht.
 Wir können dies als 0=übereinstimmen und 1=keine Übereinstimmung aufzeichnen oder 0=REF und 1=ALT.
 Wenn unser erstes Nukleotid A ist und das alternative Allel T, dann wären unsere Daten A=0 und T=1.
 Abbildung \ref{candidate_variants_p1} Panel 2 zeigt das Sequenzalignment mit Nukleotiden.
@@ -760,7 +760,7 @@ Wir werden jedoch ein greifbares Beispiel mit dem <em>Chi-Quadrat-Test</em> und 
 Im Kontext der genetischen Variantenanalyse kann er verwendet werden, um zu bewerten, ob die beobachteten Häufigkeiten der verschiedenen Genotypen signifikant von den erwarteten Häufigkeiten abweichen.
 Oder einfacher ausgedrückt, wenn die meisten Menschen mit einer spezifischen Krankheit dieselbe DNA-Variante teilen - viel mehr als erwartet - dann ist diese Variante ein guter Kandidat als Ursache ihrer Krankheit.
 Die Chi-Quadrat-Teststatistik wird mit der folgenden Formel berechnet:
-<script type="math/tex">\chi^2 = \sum_{i=1}^{n}\frac{(O_i - E_i)^2}{E_i}</script>
+\(\chi^2 = \sum_{i=1}^{n}\frac{(O_i - E_i)^2}{E_i}\)
 In dieser Formel repräsentiert $O_i$ die beobachteten Häufigkeiten für jede Genotypkategorie, $E_i$ repräsentiert die erwarteten Häufigkeiten und $n$ ist die Anzahl der Genotypkategorien.
 Lassen Sie uns ein Beispiel betrachten, um den Chi-Quadrat-Test im Kontext der genetischen Variantenanalyse zu veranschaulichen.
 Nehmen wir an, wir haben 100 Fälle und 100 Kontrollen.
@@ -800,7 +800,7 @@ Diese Korrektur wird häufig angewendet, wenn die Stichprobengröße klein ist, 
 
 <p>Das Ergebnis des Chi-Quadrat-Tests lautet wie folgt:</p>
 
-<script type="math/tex; mode=display">\text{X-Quadrat} = 66,462, \text{df} = 1, \text{p-Wert} = 3,568 \times 10^{-16}.</script>
+\[\text{X-Quadrat} = 66,462, \text{df} = 1, \text{p-Wert} = 3,568 \times 10^{-16}.\]
 
 <p>Der <em>Chi-Quadrat-Teststatistik</em>-Wert wird als <em>X-Quadrat</em> = 66,462 berichtet. Dieser Wert zeigt die Gesamtabweichung zwischen den beobachteten und erwarteten Häufigkeiten an.
 Der <em>Freiheitsgrad</em> für den Test ist <em>df</em> = 1.
@@ -812,7 +812,7 @@ In diesem Fall, da der <em>p-Wert</em> kleiner als das übliche Signifikanznivea
 
 <p>Wir haben einen Schritt übersprungen, in dem die tatsächlichen Berechnungen, die im Chi-Quadrat-Test verwendet werden, gezeigt wurden.
 Ehrlich gesagt, niemand schreibt jemals diese Berechnungen aus, da jede Analyse-Software diese Methoden im Basispaket enthält.
-Sie würden einfach der Software sagen, etwas wie <script type="math/tex">\texttt{chisq.test(genotype\_matrix)}</script> auszuführen, das alle Schritte abschließen würde.
+Sie würden einfach der Software sagen, etwas wie \(\texttt{chisq.test(genotype\_matrix)}\) auszuführen, das alle Schritte abschließen würde.
 Aber Forscher entwickeln manchmal gerne neuartige Methoden, die ihren genauen Bedürfnissen entsprechen, indem sie Berechnungen anpassen.
 Daher ist es sinnvoll, sich die Variablen anzuschauen.
 Um die erwarteten Häufigkeiten zu berechnen, müssen wir zuerst die Zeilen- und Spaltensummen der Genotypmatrix berechnen.
@@ -861,17 +861,13 @@ Dann wird für jede Zelle in der Matrix die erwartete Häufigkeit als Produkt de
   <li>Berechnen Sie die erwarteten Häufigkeiten für jede Zelle:</li>
 </ol>
 
-<script type="math/tex; mode=display">% <![CDATA[
-E_{11} &= \frac{\text{Zeilen 1 Gesamt} \times \text{Spalte 1 Gesamt}}{\text{Gesamtsumme}} = \frac{100 \times 65}{200} = 32,5 %]]></script>
+\[E_{11} &amp;= \frac{\text{Zeilen 1 Gesamt} \times \text{Spalte 1 Gesamt}}{\text{Gesamtsumme}} = \frac{100 \times 65}{200} = 32,5\]
 
-<script type="math/tex; mode=display">% <![CDATA[
-E_{12} &= \frac{\text{Zeilen 1 Gesamt} \times \text{Spalte 2 Gesamt}}{\text{Gesamtsumme}} = \frac{100 \times 135}{200} = 67,5 %]]></script>
+\[E_{12} &amp;= \frac{\text{Zeilen 1 Gesamt} \times \text{Spalte 2 Gesamt}}{\text{Gesamtsumme}} = \frac{100 \times 135}{200} = 67,5\]
 
-<script type="math/tex; mode=display">% <![CDATA[
-E_{21} &= \frac{\text{Zeilen 2 Gesamt} \times \text{Spalte 1 Gesamt}}{\text{Gesamtsumme}} = \frac{100 \times 65}{200} = 32,5 %]]></script>
+\[E_{21} &amp;= \frac{\text{Zeilen 2 Gesamt} \times \text{Spalte 1 Gesamt}}{\text{Gesamtsumme}} = \frac{100 \times 65}{200} = 32,5\]
 
-<script type="math/tex; mode=display">% <![CDATA[
-E_{22} &= \frac{\text{Zeilen 2 Gesamt} \times \text{Spalte 2 Gesamt}}{\text{Gesamtsumme}} = \frac{100 \times 135}{200} = 67,5 %]]></script>
+\[E_{22} &amp;= \frac{\text{Zeilen 2 Gesamt} \times \text{Spalte 2 Gesamt}}{\text{Gesamtsumme}} = \frac{100 \times 135}{200} = 67,5\]
 
 <p>Also sind die erwarteten Häufigkeiten wie folgt:</p>
 
@@ -901,11 +897,11 @@ E_{22} &= \frac{\text{Zeilen 2 Gesamt} \times \text{Spalte 2 Gesamt}}{\text{Gesa
 
 <p>Wir können die beobachteten und erwarteten Häufigkeiten in die Chi-Quadrat-Teststatistikformel einfügen und das Ergebnis für das Beispiel berechnen:</p>
 
-<p><script type="math/tex">\chi^2 = \frac{(O_{11} - E_{11})^2}{E_{11}} + \frac{(O_{12} - E_{12})^2}{E_{12}} + \frac{(O_{21} - E_{21})^2}{E_{21}} + \frac{(O_{22} - E_{22})^2}{E_{22}}</script>
-<script type="math/tex">= \frac{(60 - 32,5)^2}{32,5} + \frac{(40 - 67,5)^2}{67,5} + \frac{(5 - 32,5)^2}{32,5} + \frac{(95 - 67,5)^2}{67,5}</script>
-<script type="math/tex">= \frac{(27,5)^2}{32,5} + \frac{(-27,5)^2}{67,5} + \frac{(-27,5)^2}{32,5} + \frac{(27,5)^2}{67,5}</script>
-<script type="math/tex">= 23,27 + 11,20 + 23,27 + 11,20</script>
-<script type="math/tex">= 68,94</script></p>
+<p>\(\chi^2 = \frac{(O_{11} - E_{11})^2}{E_{11}} + \frac{(O_{12} - E_{12})^2}{E_{12}} + \frac{(O_{21} - E_{21})^2}{E_{21}} + \frac{(O_{22} - E_{22})^2}{E_{22}}\)
+\(= \frac{(60 - 32,5)^2}{32,5} + \frac{(40 - 67,5)^2}{67,5} + \frac{(5 - 32,5)^2}{32,5} + \frac{(95 - 67,5)^2}{67,5}\)
+\(= \frac{(27,5)^2}{32,5} + \frac{(-27,5)^2}{67,5} + \frac{(-27,5)^2}{32,5} + \frac{(27,5)^2}{67,5}\)
+\(= 23,27 + 11,20 + 23,27 + 11,20\)
+\(= 68,94\)</p>
 
 <p>Der berechnete Chi-Quadrat-Teststatistikwert, $\chi^2$, beträgt ungefähr 68,94 für dieses Beispiel.
 Dieser Wert kann mit dem Wert verglichen werden, den wir zuvor berichtet haben (X-Quadrat = 66,462).
@@ -931,8 +927,8 @@ Die Teststatistik allein reicht nicht aus, um auf Unabhängigkeit oder Abhängig
 <p>Der kritische Wert kann in der statistischen Tabelle der Chi-Quadrat-Verteilung gefunden werden und hängt vom Signifikanzniveau ab, das mit $\alpha$ bezeichnet wird, und von den Freiheitsgraden, die mit $df$ bezeichnet werden.
 Das Signifikanzniveau wird normalerweise auf 5\% (.05) festgelegt.
 Die Freiheitsgrade für einen Chi-Quadrat-Unabhängigkeitstest werden wie folgt gefunden:
-<script type="math/tex">df = (\text{Anzahl der Zeilen} - 1)
-\times (\text{Anzahl der Spalten} - 1)</script>
+\(df = (\text{Anzahl der Zeilen} - 1)
+\times (\text{Anzahl der Spalten} - 1)\)
 In unserem Beispiel sind die Freiheitsgrade also
 $ df = (2-1) \times (2-1)=1 $
 da es zwei Zeilen und zwei Spalten in der Kontingenztafel gibt (Gesamtwerte zählen nicht als Zeile oder Spalte).</p>
@@ -968,8 +964,7 @@ Der britische Statistiker Ronald A. Fisher wird oft damit in Verbindung gebracht
 
 <p>Fisher behauptete nicht ausdrücklich, dass 0,05 ein universell optimales Signifikanzniveau sei, aber er betrachtete es als eine praktische Wahl in vielen Fällen. In seinem Buch schrieb er, dass es ein „praktischer Punkt auf der Skala der Beweise“ sei und bemerkte, dass Unterschiede mit <em>p-Werten</em> unter 0,05 als „signifikant“ angesehen würden. Fishers Arbeit und Einfluss im Bereich der Statistik führten dazu, dass viele Forscher das 0,05-Niveau als Standardkriterium für die Bestimmung der statistischen Signifikanz übernahmen.</p>
 
-<p>Viele Statistiker sind genervt von Wissenschaftlern, die oft blind jedes Testergebnis, das einen <em>p-Wert</em> <script type="math/tex">% <![CDATA[
-< %]]></script> 0,05 hat, als signifikant melden, d. h., als Beweis, dass ihre Hypothese wahr ist.
+<p>Viele Statistiker sind genervt von Wissenschaftlern, die oft blind jedes Testergebnis, das einen <em>p-Wert</em> \(&lt;\) 0,05 hat, als signifikant melden, d. h., als Beweis, dass ihre Hypothese wahr ist.
 Diese Überbetonung von <em>p-Werten</em> kann zu einem Missverständnis der tatsächlichen Bedeutung der Ergebnisse und ihrer Implikationen im Kontext der Forschungsfrage führen.
 Ich muss sagen, dass ich das auch gemacht habe, als ich mit der Forschung anfing, weil ich noch nicht mehr über die Details gelernt hatte.</p>
 
@@ -997,7 +992,7 @@ Außerdem ist er besonders nützlich, wenn die Stichprobengröße klein ist.</p>
 <p>Der Test berechnet die Wahrscheinlichkeit, die beobachteten Zellenzählungen oder extremere zu erhalten, unter der Annahme der Unabhängigkeit zwischen den Variablen.
 Die Formel für Fishers exakten Test lautet wie folgt:</p>
 
-<script type="math/tex; mode=display">P = \frac{\binom{a+b}{a} \binom{c+d}{c}}{\binom{a+b+c+d}{a+c}}</script>
+\[P = \frac{\binom{a+b}{a} \binom{c+d}{c}}{\binom{a+b+c+d}{a+c}}\]
 
 <p>In dieser Formel repräsentieren $a$, $b$, $c$ und $d$ die beobachteten Zellenzählungen in der 2x2-Kontingenztafel.
 $P$ repräsentiert die Wahrscheinlichkeit, die beobachteten Zellenzählungen zu erhalten (p-Wert).
@@ -1006,7 +1001,7 @@ Beachten Sie, falls Sie es nicht wissen, dass die Terme in den geschweiften Klam
 Sie sind Binomialkoeffizienten, die auch anders geschrieben werden können.
 Unter Verwendung der Faktorialform kann die Gleichung wie folgt ausgedrückt werden:</p>
 
-<script type="math/tex; mode=display">P = \frac{\frac{(a+b)!}{a!b!} \times \frac{(c+d)!}{c!d!}}{\frac{(a+b+c+d)!}{(a+c)!(b+d)!}}</script>
+\[P = \frac{\frac{(a+b)!}{a!b!} \times \frac{(c+d)!}{c!d!}}{\frac{(a+b+c+d)!}{(a+c)!(b+d)!}}\]
 
 <p>Hier bezeichnet das „!“-Symbol das Faktorial, das das Produkt aller positiven ganzen Zahlen bis zu dieser Zahl ist.
 Zum Beispiel würde $a!$ oder $60!$ bedeuten $60 \times 59 \times  58 \times  \ldots \times  3 \times  2 \times 1 = 8.3\times10^{81}$.
@@ -1048,8 +1043,7 @@ Anstatt all das auszuschreiben, wie im Chi-Quadrat-Beispiel, werde ich einfach d
   <thead>
     <tr>
       <th>p-Wert</th>
-      <th><script type="math/tex">% <![CDATA[
-< 2.2 × 10^{-16} %]]></script></th>
+      <th>\(&lt; 2.2 × 10^{-16}\)</th>
     </tr>
   </thead>
   <tbody>
@@ -1068,8 +1062,7 @@ Anstatt all das auszuschreiben, wie im Chi-Quadrat-Beispiel, werde ich einfach d
   </tbody>
 </table>
 
-<p>Der exakte <em>p-Wert</em> für diesen Fishers exakten Test wird als <em>p-Wert</em> <script type="math/tex">% <![CDATA[
-< 2.2e-16 %]]></script>  berichtet, was einen sehr kleinen <em>p-Wert</em> nahe Null andeutet.
+<p>Der exakte <em>p-Wert</em> für diesen Fishers exakten Test wird als <em>p-Wert</em> \(&lt; 2.2e-16\)  berichtet, was einen sehr kleinen <em>p-Wert</em> nahe Null andeutet.
 Dies deutet auf starke Beweise gegen die Nullhypothese der Unabhängigkeit zwischen Genotyp und Krankheitsstatus hin.
 Einfacher ausgedrückt, dieser <em>p-Wert</em> deutet auf starke Beweise dafür hin, dass das ALT-Allel mit der Krankheit assoziiert ist.
 Die <em>Alternativhypothese</em> ist, dass das wahre Odds Ratio nicht gleich 1 ist, was auf eine Assoziation zwischen Genotyp und Krankheitsstatus hindeutet.
@@ -1091,14 +1084,14 @@ Obwohl wir berechnen, dass das Odds Ratio 27.95 ist, könnte es so niedrig wie 1
 
 <p>Das <em>Odds Ratio</em> wird wie folgt berechnet:</p>
 
-<script type="math/tex; mode=display">\text{Odds Ratio} = \frac{a/b}{c/d}</script>
+\[\text{Odds Ratio} = \frac{a/b}{c/d}\]
 
 <p>In unserem Beispiel kann das Odds Ratio berechnet werden als:</p>
 
-<script type="math/tex; mode=display">\text{Odds Ratio} = \frac{60/40}{5/95} = 28.5</script>
+\[\text{Odds Ratio} = \frac{60/40}{5/95} = 28.5\]
 
 <p>Aber Moment! Dieser Wert ist anders als der, den wir gerade gesehen haben (27.95).
-Bei dieser Berechnung habe ich die R-Funktion <script type="math/tex">\texttt{fisher.test()}</script> verwendet, die standardmäßig etwas verwendet, das als bedingte Maximum-Likelihood-Schätzung (MLE) bekannt ist, anstatt der unbedingten MLE (die Stichproben-Odds-Ratio).
+Bei dieser Berechnung habe ich die R-Funktion \(\texttt{fisher.test()}\) verwendet, die standardmäßig etwas verwendet, das als bedingte Maximum-Likelihood-Schätzung (MLE) bekannt ist, anstatt der unbedingten MLE (die Stichproben-Odds-Ratio).
 Ich habe die MLE übersprungen, da es nicht nötig ist, die Diskussion weiter zu komplizieren.
 Von unserer manuellen Berechnung können wir die Methode sehen und verstehen, wie sie durchgeführt wird.
 Wir wissen jedoch, dass in realen Anwendungen statistische Software verwendet wird und deren Ergebnis etwas genauer sein wird.</p>
@@ -1107,11 +1100,11 @@ Wir wissen jedoch, dass in realen Anwendungen statistische Software verwendet wi
 
 <p>Um das <em>Konfidenzintervall</em> für das Odds Ratio zu berechnen, können wir die folgende Formel verwenden:</p>
 
-<script type="math/tex; mode=display">\text{95\% CI} = \text{Odds Ratio} \times e^{\pm 1.96 \times \sqrt{\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}}}</script>
+\[\text{95\% CI} = \text{Odds Ratio} \times e^{\pm 1.96 \times \sqrt{\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}}}\]
 
 <p>Für unser Beispiel kann das 95\%-Konfidenzintervall berechnet werden als:</p>
 
-<script type="math/tex; mode=display">\text{95\% CI} = 27.95 \times e^{\pm 1.96 \times \sqrt{\frac{1}{60} + \frac{1}{40} + \frac{1}{5} + \frac{1}{95}}} = (10.28, 95.94)</script>
+\[\text{95\% CI} = 27.95 \times e^{\pm 1.96 \times \sqrt{\frac{1}{60} + \frac{1}{40} + \frac{1}{5} + \frac{1}{95}}} = (10.28, 95.94)\]
 
 <p>Das bedeutet, dass wir zu 95\% sicher sind, dass das wahre Odds Ratio in der Bevölkerung innerhalb dieses Intervalls liegt, das von 10.28 bis 95.94 reicht.
 Der Wert 1.96 wird in der Formel für das 95\%-Konfidenzintervall verwendet, weil er den kritischen Wert der Standardnormalverteilung (Z-Wert) darstellt, der einem zweiseitigen Test bei einem Signifikanzniveau von 0.05 entspricht.
@@ -1159,7 +1152,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Lineare Regression:</li>
 </ol>
 
-<script type="math/tex; mode=display">y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \cdots + \beta_p x_{ip} + \epsilon_i</script>
+\[y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \cdots + \beta_p x_{ip} + \epsilon_i\]
 
 <p>wo $y_i$ die abhängige Variable ist, $x_{ij}$ die Prädiktorvariablen sind, $\beta_j$ die Regressionskoeffizienten und $\epsilon_i$ die Fehlerterme.</p>
 
@@ -1167,7 +1160,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Logistische Regression:</li>
 </ol>
 
-<script type="math/tex; mode=display">\ln\left(\frac{p_i}{1-p_i}\right) = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \cdots + \beta_p x_{ip}</script>
+\[\ln\left(\frac{p_i}{1-p_i}\right) = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \cdots + \beta_p x_{ip}\]
 
 <p>wo $p_i$ die Wahrscheinlichkeit des binären Ergebnisses ist, $x_{ij}$ die Prädiktorvariablen und $\beta_j$ die Regressionskoeffizienten.</p>
 
@@ -1175,7 +1168,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Maximum-Likelihood-Schätzung (MLE):</li>
 </ol>
 
-<script type="math/tex; mode=display">\hat{\theta}_{MLE} = \arg\max_{\theta} L(\theta)</script>
+\[\hat{\theta}_{MLE} = \arg\max_{\theta} L(\theta)\]
 
 <p>wo $L(\theta)$ die Likelihood-Funktion und $\theta$ die Parameter des statistischen Modells darstellt.</p>
 
@@ -1183,7 +1176,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Varianzanalyse (ANOVA):</li>
 </ol>
 
-<script type="math/tex; mode=display">F = \frac{\text{Mittelquadrate zwischen Gruppen}}{\text{Mittelquadrate innerhalb Gruppen}}</script>
+\[F = \frac{\text{Mittelquadrate zwischen Gruppen}}{\text{Mittelquadrate innerhalb Gruppen}}\]
 
 <p>wo Mittelquadrate zwischen Gruppen und Mittelquadrate innerhalb Gruppen als Verhältnisse der Quadratsummen zu ihren jeweiligen Freiheitsgraden berechnet werden.</p>
 
@@ -1191,7 +1184,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Cox-Proportional-Hazards-Modell:</li>
 </ol>
 
-<script type="math/tex; mode=display">h(t) = h_0(t) \exp(\beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p)</script>
+\[h(t) = h_0(t) \exp(\beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p)\]
 
 <p>wo $h(t)$ die Hazard-Funktion, $h_0(t)$ die Basis-Hazard-Funktion, $x_i$ die Prädiktorvariablen und $\beta_i$ die Regressionskoeffizienten sind.</p>
 
@@ -1199,7 +1192,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Hauptkomponentenanalyse (PCA):</li>
 </ol>
 
-<script type="math/tex; mode=display">\mathbf{X} = \mathbf{U}\mathbf{\Sigma}\mathbf{V}^T</script>
+\[\mathbf{X} = \mathbf{U}\mathbf{\Sigma}\mathbf{V}^T\]
 
 <p>wo $\mathbf{X}$ die Datenmatrix ist, $\mathbf{U}$ die Matrix der linken singulären Vektoren (Eigenvektoren von $\mathbf{XX}^T$), $\mathbf{\Sigma}$ eine Diagonalmatrix der singulären Werte und $\mathbf{V}$ die Matrix der rechten singulären Vektoren (Eigenvektoren von $\mathbf{X}^T\mathbf{X}$).</p>
 
@@ -1207,7 +1200,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Fishers Methode der Momente zur Schätzung der Erblichkeit:</li>
 </ol>
 
-<script type="math/tex; mode=display">\frac{\sigma_G^2}{\sigma_P^2} = \frac{2\cdot\text{Cov}(P_1, P_2)}{\text{Var}(P_1) + \text{Var}(P_2)}</script>
+\[\frac{\sigma_G^2}{\sigma_P^2} = \frac{2\cdot\text{Cov}(P_1, P_2)}{\text{Var}(P_1) + \text{Var}(P_2)}\]
 
 <p>wo $\sigma_G^2$ die genetische Varianz ist, $\sigma_P^2$ die phänotypische Varianz, $P_1$ und $P_2$ die Phänotypen von zwei verwandten Individuen sind und Cov und Var Kovarianz bzw. Varianz darstellen.</p>
 
@@ -1215,7 +1208,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Wrights Inzuchtkoeffizient (F):</li>
 </ol>
 
-<script type="math/tex; mode=display">F = \frac{H_E - H_O}{H_E}</script>
+\[F = \frac{H_E - H_O}{H_E}\]
 
 <p>wo $H_E$ die erwartete Heterozygotie unter Hardy-Weinberg-Gleichgewicht ist und $H_O$ die beobachtete Heterozygotie.</p>
 
@@ -1223,7 +1216,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Haldanes Schätzung des Rekombinationsanteils:</li>
 </ol>
 
-<script type="math/tex; mode=display">\theta = \frac{n_r}{n}</script>
+\[\theta = \frac{n_r}{n}\]
 
 <p>wo $\theta$ der Rekombinationsanteil ist, $n_r$ die Anzahl der rekombinanten Nachkommen und $n$ die Gesamtzahl der Nachkommen.</p>
 
@@ -1231,7 +1224,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Kimuras Modell unendlicher Stellen für die erwartete Anzahl segregierender Stellen:</li>
 </ol>
 
-<script type="math/tex; mode=display">E(S) = \theta\sum_{i=1}^{n-1}\frac{1}{i}</script>
+\[E(S) = \theta\sum_{i=1}^{n-1}\frac{1}{i}\]
 
 <p>wo $E(S)$ die erwartete Anzahl segregierender Stellen ist, $\theta$ die Populationsmutationsrate und $n$ die Anzahl der beprobten Sequenzen.</p>
 
@@ -1241,7 +1234,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Wright-Fisher-Modell: Ein weit verbreitetes Modell zur Untersuchung der genetischen Drift, das eine feste Populationsgröße und diskrete Generationen annimmt. Die Wahrscheinlichkeit, dass ein Allel mit der Frequenz $p$ in der nächsten Generation die Frequenz $p’$ hat, kann mit der Binomialverteilung berechnet werden:</li>
 </ol>
 
-<script type="math/tex; mode=display">P(p' | p) = \binom{2N}{2Np'} p^{2Np'} (1-p)^{2N(1-p')}</script>
+\[P(p’ | p) = \binom{2N}{2Np'} p^{2Np'} (1-p)^{2N(1-p')}\]
 
 <p>wo $2N$ die Gesamtzahl der Genkopien in der Population ist (unter der Annahme diploider Organismen), und $p$ und $p’$ die Allelfrequenzen in der aktuellen und nächsten Generation sind.</p>
 
@@ -1249,7 +1242,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Coalescent-Theorie: Ein leistungsstarker Ansatz zur Modellierung der genetischen Drift und anderer Evolutionsprozesse, indem die Genealogie einer Genprobe rückwärts in der Zeit verfolgt wird. Im Coalescent-Modell ist die Wahrscheinlichkeit, dass zwei Abstammungslinien in der vorherigen Generation koaleszieren,:</li>
 </ol>
 
-<script type="math/tex; mode=display">P_{coal} = \frac{1}{2N}</script>
+\[P_{coal} = \frac{1}{2N}\]
 
 <p>wo $2N$ die Gesamtzahl der Genkopien in der Population ist (unter der Annahme diploider Organismen).</p>
 
@@ -1257,7 +1250,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Effektive Populationsgröße (Ne): Ein Maß, das verwendet wird, um die Auswirkungen der genetischen Drift auf eine Population zu quantifizieren. Die Beziehung zwischen der effektiven Populationsgröße und der Rate der genetischen Drift kann durch die Gleichung beschrieben werden:</li>
 </ol>
 
-<script type="math/tex; mode=display">\Delta p = \sqrt{\frac{p(1-p)}{2N_e}}</script>
+\[\Delta p = \sqrt{\frac{p(1-p)}{2N_e}}\]
 
 <p>wo $\Delta p$ die Standardabweichung der Änderung der Allelfrequenz aufgrund der genetischen Drift ist, $p$ die Allelfrequenz und $N_e$ die effektive Populationsgröße.</p>
 
@@ -1269,7 +1262,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Berechnen Sie den Testwert $T_{obs}$ für die beobachteten Daten.</li>
 </ol>
 
-<script type="math/tex; mode=display">T_{obs} = f(X_1, X_2, \dots, X_n)</script>
+\[T_{obs} = f(X_1, X_2, \dots, X_n)\]
 
 <p>wo $f(\cdot)$ eine Funktion der Daten $X_1, X_2, \dots, X_n$ ist, die den Testwert darstellt.</p>
 
@@ -1277,7 +1270,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Permutieren Sie die Datenbeschriftungen oder -werte zufällig und berechnen Sie den Testwert $T_{perm}$ für jede Permutation.</li>
 </ol>
 
-<script type="math/tex; mode=display">T_{perm} = f(X_{\pi(1)}, X_{\pi(2)}, \dots, X_{\pi(n)})</script>
+\[T_{perm} = f(X_{\pi(1)}, X_{\pi(2)}, \dots, X_{\pi(n)})\]
 
 <p>wo $\pi(\cdot)$ eine Permutation der Indizes $1, 2, \dots, n$ ist.</p>
 
@@ -1285,13 +1278,13 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
   <li>Wiederholen Sie Schritt 2 für eine große Anzahl von Permutationen (z. B. $B$ Mal), um die Nullverteilung des Testwerts zu erhalten.</li>
 </ol>
 
-<script type="math/tex; mode=display">\{T_{perm}^{(1)}, T_{perm}^{(2)}, \dots, T_{perm}^{(B)}\}</script>
+\[\{T_{perm}^{(1)}, T_{perm}^{(2)}, \dots, T_{perm}^{(B)}\}\]
 
 <ol>
   <li>Berechnen Sie den <em>p-Wert</em> als den Anteil der permutierten Testwerte, die so extrem oder extremer sind als der beobachtete Testwert.</li>
 </ol>
 
-<script type="math/tex; mode=display">p\text{-wert} = \frac{\#\{T_{perm}^{(i)}: |T_{perm}^{(i)}| \ge |T_{obs}|\}}{B}</script>
+\[p\text{-wert} = \frac{\#\{T_{perm}^{(i)}: |T_{perm}^{(i)}| \ge |T_{obs}|\}}{B}\]
 
 <p>wo $#{\cdot}$ die Anzahl der Elemente in der Menge bezeichnet, die die Bedingung erfüllen.</p>
 
@@ -1299,7 +1292,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
 
 <p>Hardy-Weinberg-Gleichgewicht (HWE) ist ein Prinzip in der Populationsgenetik, das die Beziehung zwischen Genotypfrequenzen und Allelfrequenzen unter bestimmten Annahmen beschreibt, wie zufällige Paarung, keine Mutation, keine Migration, keine natürliche Selektion und eine große Populationsgröße. Hier ist die HWE-Gleichung in LaTeX-Format:</p>
 
-<script type="math/tex; mode=display">p^2 + 2pq + q^2 = 1</script>
+\[p^2 + 2pq + q^2 = 1\]
 
 <p>wo $p$ die Frequenz eines Allels (z. B. Allel A) ist, $q$ die Frequenz des anderen Allels (z. B. Allel a) und $p^2$, $2pq$ und $q^2$ die erwarteten Frequenzen der Genotypen AA, Aa und aa sind, die unter HWE erwartet werden.</p>
 
@@ -1307,7 +1300,7 @@ Eine Zeile Ergebnisse für jedes getestete Nukleotid im gesamten Genom.</p>
 
 <p>Hier ist die Chi-Quadrat-Teststatistik für HWE im LaTeX-Format:</p>
 
-<script type="math/tex; mode=display">\chi^2 = \frac{(O_{AA} - E_{AA})^2}{E_{AA}} + \frac{(O_{Aa} - E_{Aa})^2}{E_{Aa}} + \frac{(O_{aa} - E_{aa})^2}{E_{aa}}</script>
+\[\chi^2 = \frac{(O_{AA} - E_{AA})^2}{E_{AA}} + \frac{(O_{Aa} - E_{Aa})^2}{E_{Aa}} + \frac{(O_{aa} - E_{aa})^2}{E_{aa}}\]
 
 <p>wo $O_{ij}$ und $E_{ij}$ die beobachteten und erwarteten Zählungen des Genotyps $ij$ (AA, Aa oder aa) darstellen.</p>
 
